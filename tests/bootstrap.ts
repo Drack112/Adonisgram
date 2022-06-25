@@ -14,7 +14,7 @@ import { assert, runFailedTests, specReporter, apiClient } from '@japa/preset-ad
 | Japa Plugins
 |--------------------------------------------------------------------------
 |
-| Japa plugins allows you to add additional features to Japa. By default
+| Japa plugins allows you to add additional features to Japa. By default,
 | we register the assertion plugin.
 |
 | Feel free to remove existing plugins or add more.

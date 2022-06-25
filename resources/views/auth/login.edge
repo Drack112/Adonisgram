@@ -6,5 +6,25 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Login</title>
 </head>
-<body>Login</body>
+<body>
+  <form action='/login' method='post'>
+    <div>
+      <label for="email"></label>
+      <input class="w-full bg-gray-200 text-xs border-gray-400 rounded-sm px-2 py-2 border my-1 placeholder-gray-600" type="email" name="email" id="email" placeholder="Mobile Number of Email" />
+      @if(flashMessages.has('errors.email'))
+      <small>{{ flashMessages.get("errors.email") }}</small>
+      @endif
+    </div>
+    <div>
+      <label for="password"></label>
+      <input class="w-full bg-gray-200 text-xs border-gray-400 rounded-sm px-2 py-2 border my-1 placeholder-gray-600" type="password" name="password" id="password" placeholder="Password" />
+      @if(flashMessages.has('errors.password'))
+      <small>{{ flashMessages.get("errors.password") }}</small>
+      @endif
+    </div>
+    <div class="my-3">
+      <input class="w-full text-white rounded py-1 px-2" style="background-color: rgba(var(--d69,0,149,246),1);" type="submit" value="Login" />
+    </div>
+  </form>
+</body>
 </html>
