@@ -6,5 +6,32 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Sign Up</title>
 </head>
-<body>Sign Up</body>
+<body>
+  <form action="/signup" method="POST">
+    <div>
+      <label for="name"></label>
+      <input class="w-full bg-gray-200 text-xs border-gray-400 rounded-sm px-2 py-2 border my-1 placeholder-gray-600" type="text" name="name" id="name" placeholder="Full Name" />
+      @if(flashMessages.has('errors.name'))
+      <small class="text-xs text-red-600">{{ flashMessages.get("errors.name") }}</small>
+      @endif
+    </div>
+    <div>
+      <label for="email"></label>
+      <input class="w-full bg-gray-200 text-xs border-gray-400 rounded-sm px-2 py-2 border my-1 placeholder-gray-600" type="email" name="email" id="email" placeholder="Mobile Number of Email" />
+      @if(flashMessages.has('errors.email'))
+      <small class="text-xs text-red-600">{{ flashMessages.get("errors.email") }}</small>
+      @endif
+    </div>
+    <div>
+      <label for="password"></label>
+      <input class="w-full bg-gray-200 text-xs border-gray-400 rounded-sm px-2 py-2 border my-1 placeholder-gray-600" type="password" name="password" id="password" placeholder="Password"/>
+      @if(flashMessages.has('errors.password'))
+      <small class="text-xs text-red-600">{{ flashMessages.get("errors.password") }}</small>
+      @endif
+    </div>
+    <div>
+      <input type="submit" value="Sign Up">
+    </div>
+  </form>
+</body>
 </html>
