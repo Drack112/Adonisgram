@@ -68,7 +68,7 @@ export default class User extends BaseModel {
         .from('verify@adonisgram.com')
         .to(this.email)
         .subject('Please verify your email')
-        .htmlView('emails/verify', { user: this, url })
+        .htmlView('email/verify', { user: this, url })
     })
   }
 }
