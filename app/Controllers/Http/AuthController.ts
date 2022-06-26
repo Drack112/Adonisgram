@@ -3,7 +3,7 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { rules, schema } from '@ioc:Adonis/Core/Validator'
 // @ts-ignore
-import User from 'App/Models/User'
+import User from 'App/Models/user'
 
 export default class AuthController {
   public async signup({ request, response }: HttpContextContract) {
@@ -52,7 +52,7 @@ export default class AuthController {
   }
 
   public async logout({ auth, response }: HttpContextContract) {
-    auth.logout()
+    await auth.logout()
     return response.redirect('/')
   }
 }
