@@ -1,8 +1,5 @@
-// import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { rules, schema } from '@ioc:Adonis/Core/Validator'
-// @ts-ignore
 import User from 'App/Models/user'
 
 export default class AuthController {
@@ -11,21 +8,25 @@ export default class AuthController {
       schema: schema.create({
         name: schema.string(),
         email: schema.string({}, [rules.email()]),
+        username: schema.string({}),
         password: schema.string({}),
       }),
       messages: {
         'name.required': 'Name is required to sign up',
         'email.required': 'Email is required to sign up',
+        'username.required': 'Username is required to sign up',
         'password.required': 'Password is required to sign up',
       },
     })
 
     const user = new User()
-
     user.name = req.name
     user.email = req.email
+    user.username = req.username
     user.password = req.password
     await user.save()
+
+    user?.sendVerificationEmail()
 
     return response.redirect('/')
   }
@@ -45,10 +46,9 @@ export default class AuthController {
 
     const email = req.email
     const password = req.password
+    const user = await auth.attempt(email, password)
 
-    await auth.attempt(email, password)
-
-    return response.redirect('/profile')
+    return response.redirect(`/${user.username}`)
   }
 
   public async logout({ auth, response }: HttpContextContract) {
