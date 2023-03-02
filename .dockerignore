@@ -4,3 +4,11 @@
 .gitignore
 Dockerfile
 .docker/dbdata
+node_modules
+npm-debug.log
+docker-compose*
+.dockerignore
+.git
+README.md
+LICENSE
+.vscode
