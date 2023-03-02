@@ -63,7 +63,7 @@ DRIVE_DISK=local
 SESSION_DRIVER=cookie
 CACHE_VIEWS=false
 
-DB_CONNECTION=sqlite
+DB_CONNECTION=pg
 
 #SMTP
 SMTP_HOST=localhost
