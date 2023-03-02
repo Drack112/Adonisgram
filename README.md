@@ -24,14 +24,14 @@
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![AdonisJS](https://img.shields.io/badge/adonisjs-%23220052.svg?style=for-the-badge&logo=adonisjs&logoColor=white)
-![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
 
 ## 💻 Projeto
 
-O AdonisGram e um projeto que tem como função ser um repertório do que eu aprendi com o framework AdonisJS.
+O AdonisGram e um projeto que tem como função ser um repertório do que eu aprendi com o framework AdonisJS, usando o edge template como view engine, e todas as suas funções por baixo dos panos, como controller, ORM e afins.
 
 Ele visa simular a rede social Instagram.
 
@@ -41,9 +41,46 @@ Ele visa simular a rede social Instagram.
 
 ## 🚀 Como executar
 
-- Clone o repositório
-- Instale as dependências com `yarn`
-- Inicie o servidor com `yarn start`
+### :computer: Pré-requisitos
+
+Antes de começar, verifique se você atendeu aos seguintes requisitos:
+
+- Você instalou a versão mais recente de < Docker & NodeJS>
+- Você tem uma máquina < Windows / Linux / Mac >.
+- Você possui um < Editor de código ou IDE e Gerenciador de banco de dados >.
+
+## ☕ Pequena ajuda
+
+Preencha o arquivo `.env.example` com as informações cobradas e depois renomeie para `.env`.
+
+```env
+# App
+PORT=
+HOST=
+NODE_ENV=
+APP_KEY=
+DRIVE_DISK=local
+SESSION_DRIVER=cookie
+CACHE_VIEWS=false
+
+DB_CONNECTION=sqlite
+
+#SMTP
+SMTP_HOST=localhost
+SMTP_PORT=587
+SMTP_USERNAME=<username>
+SMTP_PASSWORD=<password>
+
+#Postgres
+PG_HOST=localhost
+PG_PORT=5432
+PG_USER=lucid
+PG_PASSWORD=
+PG_DB_NAME=lucid
+
+```
+
+Com isso, agora rode **docker-compose up** para iniciar o servidor de desenvolvimento
 
 Agora você pode acessar [`localhost:3000`](http://localhost:3000) do seu navegador.
 
