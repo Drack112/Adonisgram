@@ -15,6 +15,9 @@ services:
       - adonis
     env_file:
       - .env
+    depends_on:
+      - db
+      - mail
 
   db:
     build: .docker/postgres
@@ -30,6 +33,16 @@ services:
       - .docker/dbdata:/var/lib/postgresql/data
     networks:
       - adonis
+    env_file:
+      - .env
+
+  mail:
+    image: mailhog/mailhog
+    restart: unless-stopped
+    container_name: "smtp-mailhog"
+    ports:
+      - 1025:1025
+      - 8025:8025
     env_file:
       - .env
 
