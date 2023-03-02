@@ -1,0 +1,6 @@
+.github
+.editorconfig
+.gitattributes
+.gitignore
+Dockerfile
+.docker/dbdata

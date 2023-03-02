@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+  app:
+    build: .
+    container_name: "adonisgram-app"
+    restart: unless-stopped
+    entrypoint: .docker/entrypoint.sh
+    volumes:
+      - ".:/usr/src/services/adonisgram"
+      - "./node_modules"
+    ports:
+      - 3000:3000
+    networks:
+      - adonis
+    env_file:
+      - .env
+
+  db:
+    build: .docker/postgres
+    container_name: "postgres-adonisgram"
+    environment:
+      - POSTGRES_USER=${PG_USER}
+      - POSTGRES_PASSWORD=${PG_PASSWORD}
+      - POSTGRES_DB=${PG_DB_NAME}
+      - DATABASE_HOST=${PG_HOST}
+    ports:
+      - 5432:5432
+    volumes:
+      - .docker/dbdata:/var/lib/postgresql/data
+    networks:
+      - adonis
+    env_file:
+      - .env
+
+networks:
+  adonis:
+    driver: bridge
